@@ -11,8 +11,20 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "light-piece": "#ffffff",
+        "dark-piece": "#000000",
+        "light-square": "#e9f5db",
+        "dark-square": "#718355",
       },
     },
   },
+  safelist: [
+    {
+      pattern: /fill-(light|dark)-piece/,
+    },
+    {
+      pattern: /bg-(light|dark)-square/,
+    }
+  ],
   plugins: [],
 } satisfies Config;
