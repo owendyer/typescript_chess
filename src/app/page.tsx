@@ -15,7 +15,7 @@ export default function Home() {
         index: index,
         color: (index % 8 + Math.floor(index / 8)) % 2 === 0 ? "light" : "dark",
     }));
-    console.log(chessSquares);
+    // console.log(chessSquares);
 
     return (
         <div className="h-screen max-w-7xl mx-auto">

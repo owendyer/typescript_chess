@@ -5,7 +5,7 @@ export interface ChessSquareProps {
     color: "light" | "dark";
 }
 
-export default function ChessSquare({index, color}: ChessSquareProps) {
+export default function ChessSquare({color}: ChessSquareProps) {
     return (
         <div className={`w-full h-full bg-${color}-square aspect-square flex justify-center items-center`}>
             <ChessPiece pieceType="pawn" pieceColor={color}/>

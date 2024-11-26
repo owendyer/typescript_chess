@@ -1,5 +1,3 @@
-import clsx from "clsx";
-
 import Queen from '@/assets/chess-pieces/queen.svg';
 import King from '@/assets/chess-pieces/king.svg';
 import Bishop from '@/assets/chess-pieces/bishop.svg';

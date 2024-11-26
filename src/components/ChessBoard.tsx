@@ -22,7 +22,6 @@ export default function ChessBoard({squares}: ChessBoardProps) {
     useEffect(() => {
         const resizeObserver = new ResizeObserver((entries) => {
             if (entries[0]) {
-                const containerWidth = entries[0].contentRect.width;
                 const rect = entries[0].contentRect;
                 if (rect.width < rect.height) {
                     setDimensions({
@@ -34,7 +33,7 @@ export default function ChessBoard({squares}: ChessBoardProps) {
                     setDimensions({width: rect.height, height: rect.height});
                 }
                 // setWidth(containerWidth);
-                console.log(rect);
+                // console.log(rect);
             }
         });
         resizeObserver.observe(boardRef.current as Element);
