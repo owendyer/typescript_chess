@@ -66,7 +66,7 @@ export default function ChessBoard() {
     };
   }, []);
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handlePointerMove = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     if (draggedPiece && piecesRef.current) {
       const boardRect = piecesRef.current.getBoundingClientRect();
@@ -97,7 +97,7 @@ export default function ChessBoard() {
     }
   };
 
-  const handleMouseDown = (
+  const handlePointerDown = (
     event: React.MouseEvent<HTMLDivElement>,
     piece: ChessPieceProps,
   ) => {
@@ -146,7 +146,8 @@ export default function ChessBoard() {
     return null;
   };
 
-  const handleMouseUp = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handlePointerUp = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
     if (piecesRef.current) {
       const boardRect = piecesRef.current.getBoundingClientRect();
       if (
@@ -260,8 +261,8 @@ export default function ChessBoard() {
   return (
     <div
       className="w-full h-full"
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
     >
       <div
         ref={containerRef}
@@ -278,7 +279,7 @@ export default function ChessBoard() {
             <ChessSquare key={index} {...square} />
           ))}
         </div>
-        <div ref={piecesRef} className="absolute">
+        <div ref={piecesRef} className="absolute touch-none">
           <div
             className="relative"
             style={{
@@ -295,8 +296,8 @@ export default function ChessBoard() {
                   key={`${piece.pieceType}-${piece.pieceColor}-${piece.coordinate.rank}-${piece.coordinate.file}`}
                   piece={updatedPiece}
                   squareSideLength={boardDimensions.squareSideLength}
-                  onMouseDown={(event: React.MouseEvent<HTMLDivElement>) =>
-                    handleMouseDown(event, updatedPiece)
+                  onPointerDown={(event: React.MouseEvent<HTMLDivElement>) =>
+                    handlePointerDown(event, updatedPiece)
                   }
                 />
               );

@@ -20,13 +20,13 @@ const pieceMap = {
 export interface PieceProps {
   piece: ChessPieceProps;
   squareSideLength: number;
-  onMouseDown: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onPointerDown: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export default function ChessPiece({
   piece,
   squareSideLength,
-  onMouseDown,
+  onPointerDown,
 }: PieceProps) {
   const { pieceColor, pieceType, rect, zIndex } = piece;
   const Piece = pieceMap[pieceType];
@@ -41,7 +41,7 @@ export default function ChessPiece({
         transform: piece.rect.isDragging ? "translate(-50%, -50%)" : "",
         zIndex: zIndex,
       }}
-      onMouseDown={onMouseDown}
+      onPointerDown={onPointerDown}
     >
       <Piece
         className={`w-3/4 h-3/4 fill-${pieceColor}-piece stroke-[8] stroke-black`}
